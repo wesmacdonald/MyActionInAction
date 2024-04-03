@@ -10,13 +10,13 @@ jobs:
         
       - name: Run my own container action
         id: my-action
-        uses: ./
+        uses: ./
         with:
           who-to-greet: '@wesmacdonald'
           
       - name: Output the answer
         run: echo "The answer is ${{ steps.my-action.outputs.answer }}"
-      
+        
       - name: Test the container
         if: ${{ steps.my-action.outputs.answer != 42 }}
         run: |
